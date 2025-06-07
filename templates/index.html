@@ -167,7 +167,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8" />
-    <title>حاسبة الفيزا</title>
+    <title>حساب التأشيرة</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
     <style>
@@ -214,7 +214,7 @@
 </head>
 <body>
 <div class="container text-center">
-    <h2 class="mb-4">حساب الفيزا</h2>
+    <h2 class="mb-4">حساب صلاحيةذالتأشيرة ومدة البقاء في تركيا 🇹🇷 </h2>
 
     <!-- إضافة رحلة -->
     <div class="card mb-4">
@@ -320,7 +320,7 @@
         <strong>{{ result.warning }}</strong>
     </div>
     <ul class="list-group mb-4 text-start" style="direction: rtl;">
-        <li class="list-group-item">📆 <strong>نافذة 180 يوم تبدأ من:</strong> {{ result.window_start }}</li>
+        <li class="list-group-item">📆 <strong> 180 يوم تبدأ من:</strong> {{ result.window_start }}</li>
         <li class="list-group-item">🧾 <strong>عدد الأيام المستخدمة من الرحلات السابقة:</strong> {{ result.used_days }}</li>
         <li class="list-group-item">✈️ <strong>عدد أيام الرحلة الجديدة:</strong> {{ result.new_trip_days }}</li>
         <li class="list-group-item">🧮 <strong>إجمالي الأيام المحتسبة:</strong> {{ result.total_used }}</li>
