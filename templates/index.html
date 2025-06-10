@@ -205,25 +205,50 @@
             }
         }
     </style>
+{#    <script>#}
+{#        function setupDateSync(startId, endId) {#}
+{#            const startInput = document.getElementById(startId);#}
+{#            const endInput = document.getElementById(endId);#}
+{##}
+{#            startInput.addEventListener('change', function () {#}
+{#                const val = this.value;#}
+{#                if (val.length === 10) {#}
+{#                    endInput.min = val;#}
+{#                    endInput.focus();#}
+{#                }#}
+{#            });#}
+{#        }#}
+{##}
+{#        document.addEventListener('DOMContentLoaded', function () {#}
+{#            setupDateSync('new_trip_start', 'new_trip_end');#}
+{#            setupDateSync('check_start', 'check_end');#}
+{#        });#}
+{#    </script>#}
     <script>
-        function setupDateSync(startId, endId) {
-            const startInput = document.getElementById(startId);
-            const endInput = document.getElementById(endId);
+    function setupDateSync(startId, endId) {
+        const startInput = document.getElementById(startId);
+        const endInput = document.getElementById(endId);
 
-            startInput.addEventListener('change', function () {
-                const val = this.value;
-                if (val.length === 10) {
-                    endInput.min = val;
-                    endInput.focus();
+        function updateMinDate() {
+            const startDate = startInput.value;
+            if (startDate) {
+                endInput.min = startDate;
+                if (endInput.value && endInput.value < startDate) {
+                    endInput.value = startDate;
                 }
-            });
+            }
         }
 
-        document.addEventListener('DOMContentLoaded', function () {
-            setupDateSync('new_trip_start', 'new_trip_end');
-            setupDateSync('check_start', 'check_end');
-        });
-    </script>
+        startInput.addEventListener('change', updateMinDate);
+        startInput.addEventListener('input', updateMinDate);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        setupDateSync('new_trip_start', 'new_trip_end');
+        setupDateSync('check_start', 'check_end');
+    });
+</script>
+
 </head>
 <body>
 <div class="container text-center">

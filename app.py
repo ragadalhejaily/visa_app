@@ -83,7 +83,7 @@ def index():
                 new_trip_days = (end - start).days
                 total_used = used_days + new_trip_days
                 remaining = 90 - total_used
-                warning = "✅ مسموح بالسفر" if remaining >= 0 else f"⚠️ تجاوزت الحد بـ {abs(remaining)} يوم"
+                warning = "✅ نظامي" if remaining >= 0 else f"⚠️ غير نظامي  تجاوزت الحد بـ {abs(remaining)} يوم"
 
                 # إضافة الرحلة الجديدة إلى ملف الإكسل بعد التحقق (يمكن تعديل حسب رغبتك)
                 add_trip(start, end)
@@ -114,7 +114,7 @@ def index():
                 new_trip_days = (end - start).days
                 total_used = used_days + new_trip_days
                 remaining = 90 - total_used
-                warning = "✅ مسموح بالسفر" if remaining >= 0 else f"⚠️ تجاوزت الحد بـ {abs(remaining)} يوم"
+                warning = "✅ نظامي" if remaining >= 0 else f"⚠️غير نظامي تجاوزت الحد بـ {abs(remaining)} يوم"
 
                 session['result'] = {
                     "window_start": window_start.strftime('%Y-%m-%d'),
