@@ -224,23 +224,29 @@
 {#            setupDateSync('check_start', 'check_end');#}
 {#        });#}
 {#    </script>#}
-    <script>
+<script>
     function setupDateSync(startId, endId) {
         const startInput = document.getElementById(startId);
         const endInput = document.getElementById(endId);
 
-        function updateMinDate() {
+        function updateEndDate() {
             const startDate = startInput.value;
             if (startDate) {
+                // ضبط الحد الأدنى لتاريخ العودة
                 endInput.min = startDate;
-                if (endInput.value && endInput.value < startDate) {
+
+                // إذا لم يُحدد تاريخ العودة أو كان قبله، يتم تعيينه تلقائياً كبداية
+                if (!endInput.value || endInput.value < startDate) {
                     endInput.value = startDate;
                 }
+
+                // تركيز تلقائي على تاريخ العودة بعد اختيار الذهاب
+                setTimeout(() => endInput.focus(), 100);
             }
         }
 
-        startInput.addEventListener('change', updateMinDate);
-        startInput.addEventListener('input', updateMinDate);
+        startInput.addEventListener('change', updateEndDate);
+        startInput.addEventListener('input', updateEndDate);
     }
 
     document.addEventListener('DOMContentLoaded', function () {
